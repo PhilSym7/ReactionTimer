@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBase">#44485b</color>
+    <color name="colorBaseText">#cdd3f9</color>
+    <color name="colorWait">#FF0000</color>
+    <color name="colorWaitText">#FF0000</color>
+    <color name="colorClick">#01bc14</color>
+    <color name="colorClickText">#009f00</color>
+    <color name="colorEarly">#0000FF</color>
+    <color name="colorEarlyText">#0000FF</color>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Reaction Timer</string>
+    <string name="start">Touch anywhere to start. Tap as soon as the screen turns green.</string>
+</resources>
