@@ -7,18 +7,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/urTime"
+        android:id="@+id/legitTime"
         android:background="@color/colorClick"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
-        android:text="Now!"
-        android:onClick="finish"/>
+        android:text="B B B B B" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@color/colorClick"
-        android:id="@+id/green_click"
+        app:srcCompat="@color/colorAccent"
+        android:id="@+id/finishClick"
         android:onClick="getReactionTime"/>
 
 </LinearLayout>

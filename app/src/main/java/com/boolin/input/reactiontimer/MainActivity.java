@@ -19,17 +19,18 @@ public class MainActivity extends AppCompatActivity {
     int seconds;
     int minutes;
     long yourTime;
+    boolean tapNow;
 
 
     //attempt to make wait time different on each test
     public static int getWaitTime(){
         //makes wait time
         Random rand = new Random();
-        int waitTime = rand.nextInt(5) + 1;
+        int waitTime = rand.nextInt(5) + 2;
         return waitTime;
     }
 
-    int fakeWaitTime = MainActivity.getWaitTime();
+    int fakeWaitTime = getWaitTime();
 
     //runs without a timer by reposting this handler at the end of the runnable
     Handler timerHandler = new Handler();
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             seconds = (int) (millis / 1000);
             minutes = seconds / 60;
             seconds = seconds % 60;
+            tapNow = true;
 
             //sets up text view to display time
             //to be removed
@@ -52,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
             TableLayout main = (TableLayout) findViewById(R.id.activity_main);
 
             getWaitTime();
-            if (seconds >= fakeWaitTime){
+            if (seconds == fakeWaitTime && tapNow == true){
                 setContentView(R.layout.green_tap);
+                tapNow = false;
             }
         }
     };
@@ -67,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         //makes start button
         //to be replaced with 'touch screen'
-        Button b = (Button) findViewById(R.id.button);
-        b.setText("start");
+        TextView b = (TextView) findViewById(R.id.textFull);
+        b.setText("Tap anywhere to start. Tap again when the screen turns green.");
         b.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Button b = (Button) v;
+                TextView b = (TextView) v;
                 if (b.getText().equals("stop")) {
                     timerHandler.removeCallbacks(timerRunnable);
                     b.setText("start");
@@ -81,7 +84,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     startTime = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnable, 0);
-                    b.setText("stop");
+                    if (seconds < 1){
+                        b.setText("Wait...");
+                    }
+                    else if (seconds >= 1){
+                        b.setText("Wait for it...");
+                    }
+                    else if (seconds >= 2){
+                        b.setText("Does this even work?");
+                    }
                     getWaitTime();
                 }
             }
@@ -105,10 +116,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getReactionTime(View view){
+        TextView txtFinal = (TextView) findViewById(R.id.urTime);
+    }
+
+    public void finish(){
         timerHandler.removeCallbacks(timerRunnable);
-        yourTime = millis - fakeWaitTime;
-        TextView bep = (TextView) findViewById(R.id.urTime);
-        bep.setText(toString());
-        bep.setText(String.valueOf((yourTime)));
+
+//        setContentView(R.layout.finish_tap);
+//        System.out.println("Test");
+        TextView txtFinal = (TextView) findViewById(R.id.urTime);
+        txtFinal.setText("PBEBNEIBSI");
+
     }
 }

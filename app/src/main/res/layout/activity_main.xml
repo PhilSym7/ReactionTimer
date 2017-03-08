@@ -12,9 +12,11 @@
     tools:context="com.boolin.input.reactiontimer.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textFull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="@string/start"
+        android:textAlignment="center"
         android:textColor="@color/colorBaseText" />
 
     <TextView
